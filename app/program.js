@@ -1,6 +1,6 @@
 var os = require("os");
-var OSinfo = require("../modules/OSinfo");
-var time = require("../modules/time");
+var OSinfo = require("../modules/OSinfo.js");
+var time = require("../modules/time.js");
 
 process.stdin.setEncoding("utf-8");
 process.stdout.write(

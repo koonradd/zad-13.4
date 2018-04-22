@@ -1,31 +1,19 @@
-var os = require("os");
+function changeTime(time) {
+  var hours = Math.floor(time / 3600);
+  var minuts = Math.floor((time % 3600) / 60);
+  var second = Math.floor((time % 3600) % 60);
+  var score = " ";
 
-function time() {
-  var uptime = os.uptime();
-
-  var hour = Math.round(uptime / 3600);
-  if (hour < 0) {
-    hour = "0" + hour;
+  if (hours === 0) {
+    score = minuts + "min " + second + "s ";
+    return score;
+  } else if (hours === 0 && minuts === 0) {
+    score = second + "s ";
+    return score;
+  } else {
+    score = hours + "h " + minuts + "min " + second + "s ";
+    return score;
   }
-
-  var minutes = Math.round((uptime % 3600) / 60);
-  if (minutes < 0) {
-    minutes = "0" + minutes;
-  }
-
-  var seconds = Math.round(uptime % 60);
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-  return console.log(
-    "Uptime: ~ " +
-      hour +
-      " hours " +
-      minutes +
-      " minutes " +
-      seconds +
-      " seconds"
-  );
 }
 
-exports.printTime = time;
+exports.print = changeTime;
